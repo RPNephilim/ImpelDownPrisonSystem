@@ -12,4 +12,5 @@ public class LoginController {
     public ResponseEntity<String> testEndpoint(){
         return new ResponseEntity<>("Success", HttpStatus.OK);
     }
+
 }

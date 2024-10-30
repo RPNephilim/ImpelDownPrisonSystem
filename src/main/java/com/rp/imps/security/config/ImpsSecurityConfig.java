@@ -30,7 +30,7 @@ public class ImpsSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/test", "/prison/user/**").permitAll()
+                        .requestMatchers("/prison/user/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf((csrf) -> csrf.disable())

@@ -1,10 +1,7 @@
 package com.rp.imps.model.entity;
 
 import com.rp.imps.model.enums.ExecutionStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -17,7 +14,8 @@ import java.time.LocalDate;
 @Entity
 public class Prisoner {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prisoner-seq-gen")
+    @SequenceGenerator(name = "prisoner-seq-gen", initialValue = 10000, allocationSize = 1)
     private String id;
     private double bounty;
     private String crimeDescription;

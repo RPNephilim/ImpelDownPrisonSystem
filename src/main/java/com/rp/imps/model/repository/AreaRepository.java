@@ -4,4 +4,5 @@ import com.rp.imps.model.entity.Area;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AreaRepository extends JpaRepository<Area, String> {
+    public Area findByName(String name);
 }

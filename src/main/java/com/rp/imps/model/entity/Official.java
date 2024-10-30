@@ -2,10 +2,7 @@ package com.rp.imps.model.entity;
 
 import com.rp.imps.model.Person;
 import com.rp.imps.model.enums.Role;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -19,7 +16,8 @@ import java.time.LocalDate;
 @Entity
 public class Official extends Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "official-seq-gen")
+    @SequenceGenerator(name = "official-seq-gen", initialValue = 1000, allocationSize = 1)
     private String id;
     private Role role;
     private String assignedArea;

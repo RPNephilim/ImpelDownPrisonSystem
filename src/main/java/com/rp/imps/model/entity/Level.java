@@ -1,10 +1,7 @@
 package com.rp.imps.model.entity;
 
 import com.rp.imps.model.enums.LevelType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -22,5 +19,6 @@ public class Level {
     private String id;
     private LevelType type;
     private String supervisor;
+    @ElementCollection
     private List<Area> areas;
 }

@@ -5,8 +5,8 @@ import com.rp.imps.model.request.OfficialRequest;
 import com.rp.imps.model.response.OfficialResponse;
 
 public interface OfficialService {
-    public OfficialResponse addOfficial(Official official);
-    public OfficialResponse getOfficial(OfficialRequest official);
-    public String removeOfficial(OfficialRequest official);
+    public OfficialResponse addOfficial(OfficialRequest official);
+    public OfficialResponse getOfficial(String id);
+    public String removeOfficial(String id);
     public OfficialResponse updateOfficial(OfficialRequest official);
 }

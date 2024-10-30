@@ -1,9 +1,6 @@
 package com.rp.imps.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -17,10 +14,12 @@ import java.util.List;
 @Entity
 public class Area {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "area-seq-gen")
+    @SequenceGenerator(name = "area-seq-gen", initialValue = 100000, allocationSize = 1)
     private String id;
     private String name;
     private List<String> cells;
     private List<String> rooms;
+    @ElementCollection
     private List<Official> guardsAssigned;
 }

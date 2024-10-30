@@ -12,17 +12,17 @@ import org.springframework.stereotype.Service;
 public class OfficialServiceImpl implements OfficialService {
 
     @Override
-    public OfficialResponse addOfficial(Official official) {
+    public OfficialResponse addOfficial(OfficialRequest official) {
         return null;
     }
 
     @Override
-    public OfficialResponse getOfficial(OfficialRequest official) {
+    public OfficialResponse getOfficial(String id) {
         return null;
     }
 
     @Override
-    public String removeOfficial(OfficialRequest official) {
+    public String removeOfficial(String id) {
         return "";
     }
 
