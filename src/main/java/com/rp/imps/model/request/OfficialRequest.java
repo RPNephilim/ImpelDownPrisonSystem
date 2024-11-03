@@ -1,10 +1,8 @@
 package com.rp.imps.model.request;
 
 import com.rp.imps.model.Person;
-import com.rp.imps.model.enums.Role;
 import lombok.*;
 
-import java.time.LocalDate;
 
 @Getter
 @Setter

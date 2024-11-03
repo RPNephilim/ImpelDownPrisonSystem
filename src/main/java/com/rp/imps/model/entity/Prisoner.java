@@ -1,5 +1,6 @@
 package com.rp.imps.model.entity;
 
+import com.rp.imps.model.Person;
 import com.rp.imps.model.enums.ExecutionStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @Entity
-public class Prisoner {
+public class Prisoner extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prisoner-seq-gen")
     @SequenceGenerator(name = "prisoner-seq-gen", initialValue = 10000, allocationSize = 1)

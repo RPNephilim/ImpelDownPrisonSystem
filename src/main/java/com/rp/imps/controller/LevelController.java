@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping(value = "/level")
 public class LevelController {
     
     @Autowired
@@ -29,8 +30,8 @@ public class LevelController {
         return new ResponseEntity<>(service.getLevel(id), HttpStatus.OK);
     }
 
-    @PutMapping(value = "")
-    public ResponseEntity<LevelResponse> updateLevel(@RequestBody LevelRequest request){
-        return new ResponseEntity<>(service.updateLevel(request), HttpStatus.OK);
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<LevelResponse> updateLevel(@PathVariable String id, @RequestBody LevelRequest request){
+        return new ResponseEntity<>(service.updateLevel(id, request), HttpStatus.OK);
     }
 }

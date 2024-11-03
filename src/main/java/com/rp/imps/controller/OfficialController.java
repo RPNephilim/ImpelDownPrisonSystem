@@ -30,8 +30,8 @@ public class OfficialController {
         return new ResponseEntity<>(service.getOfficial(id), HttpStatus.OK);
     }
 
-    @PutMapping(value = "")
-    public ResponseEntity<OfficialResponse> updateOfficial(@RequestBody OfficialRequest request){
-        return new ResponseEntity<>(service.updateOfficial(request), HttpStatus.OK);
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<OfficialResponse> updateOfficial(@PathVariable String id, @RequestBody OfficialRequest request){
+        return new ResponseEntity<>(service.updateOfficial(id, request), HttpStatus.OK);
     }
 }

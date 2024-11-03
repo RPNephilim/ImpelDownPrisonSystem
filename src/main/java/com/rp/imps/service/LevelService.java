@@ -8,5 +8,5 @@ public interface LevelService {
     public LevelResponse addLevel(LevelRequest Level);
     public LevelResponse getLevel(String id);
     public String removeLevel(String id);
-    public LevelResponse updateLevel(LevelRequest Level);
+    public LevelResponse updateLevel(String id, LevelRequest Level);
 }

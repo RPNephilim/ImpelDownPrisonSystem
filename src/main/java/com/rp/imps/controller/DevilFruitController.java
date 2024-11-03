@@ -29,8 +29,8 @@ public class DevilFruitController {
         return new ResponseEntity<>(service.getDevilFruit(id), HttpStatus.OK);
     }
 
-    @PutMapping(value = "")
-    public ResponseEntity<DevilFruitResponse> updateDevilFruit(@RequestBody DevilFruitRequest request){
-        return new ResponseEntity<>(service.updateDevilFruit(request), HttpStatus.OK);
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<DevilFruitResponse> updateDevilFruit(@PathVariable String id, @RequestBody DevilFruitRequest request){
+        return new ResponseEntity<>(service.updateDevilFruit(id, request), HttpStatus.OK);
     }
 }

@@ -8,5 +8,5 @@ public interface DevilFruitService {
     public DevilFruitResponse addDevilFruit(DevilFruitRequest DevilFruit);
     public DevilFruitResponse getDevilFruit(String id);
     public String removeDevilFruit(String id);
-    public DevilFruitResponse updateDevilFruit(DevilFruitRequest DevilFruit);
+    public DevilFruitResponse updateDevilFruit(String id, DevilFruitRequest DevilFruit);
 }

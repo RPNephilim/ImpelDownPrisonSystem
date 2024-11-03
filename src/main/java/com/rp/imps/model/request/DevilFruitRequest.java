@@ -1,6 +1,5 @@
 package com.rp.imps.model.request;
 
-import com.rp.imps.model.enums.DevilFruitType;
 import lombok.*;
 
 @Getter

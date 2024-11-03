@@ -8,5 +8,5 @@ public interface OfficialService {
     public OfficialResponse addOfficial(OfficialRequest official);
     public OfficialResponse getOfficial(String id);
     public String removeOfficial(String id);
-    public OfficialResponse updateOfficial(OfficialRequest official);
+    public OfficialResponse updateOfficial(String id, OfficialRequest official);
 }

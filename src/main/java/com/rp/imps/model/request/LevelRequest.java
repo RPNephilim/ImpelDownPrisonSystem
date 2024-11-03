@@ -1,7 +1,6 @@
 package com.rp.imps.model.request;
 
 import com.rp.imps.model.entity.Area;
-import com.rp.imps.model.enums.LevelType;
 import lombok.*;
 
 import java.util.List;
