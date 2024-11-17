@@ -1,11 +1,11 @@
 package com.rp.imps.service.impl;
 
 import com.rp.imps.model.entity.Official;
-import com.rp.imps.model.enums.Role;
 import com.rp.imps.model.repository.AreaRepository;
 import com.rp.imps.model.repository.OfficialRepository;
 import com.rp.imps.model.request.OfficialRequest;
 import com.rp.imps.model.response.OfficialResponse;
+import com.rp.imps.security.model.enums.Role;
 import com.rp.imps.service.OfficialService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

@@ -1,7 +1,7 @@
 package com.rp.imps.model.entity;
 
 import com.rp.imps.model.Person;
-import com.rp.imps.model.enums.Role;
+import com.rp.imps.security.model.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
