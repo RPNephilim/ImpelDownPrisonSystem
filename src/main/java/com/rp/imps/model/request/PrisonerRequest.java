@@ -1,10 +1,7 @@
 package com.rp.imps.model.request;
 
 import com.rp.imps.model.Person;
-import com.rp.imps.model.enums.ExecutionStatus;
 import lombok.*;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -17,6 +14,7 @@ public class PrisonerRequest  extends Person {
     private String crimeDescription;
     private String affiliatedWith;
     private String assignedLevel;
+    private String assignedArea;
     private String executionDate;
     private String executionStatus;
     private String assignedCell;

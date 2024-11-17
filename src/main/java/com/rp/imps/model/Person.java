@@ -8,12 +8,11 @@ import lombok.*;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Person {
     private String fullName;
     private String fatherName;
     private String motherName;
     private String race;
-    private DevilFruit devilFruit;
+    private String devilFruit;
     private String photo;
 }

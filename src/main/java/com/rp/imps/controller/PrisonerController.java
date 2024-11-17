@@ -30,8 +30,8 @@ public class PrisonerController {
         return new ResponseEntity<>(service.getPrisoner(id), HttpStatus.OK);
     }
 
-    @PutMapping(value = "")
-    public ResponseEntity<PrisonerResponse> updatePrisoner(@RequestBody PrisonerRequest request){
-        return new ResponseEntity<>(service.updatePrisoner(request), HttpStatus.OK);
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<PrisonerResponse> updatePrisoner(@PathVariable String id, @RequestBody PrisonerRequest request){
+        return new ResponseEntity<>(service.updatePrisoner(id, request), HttpStatus.OK);
     }
 }

@@ -20,6 +20,5 @@ public class Area {
     private String name;
     private List<String> cells;
     private List<String> rooms;
-    @ElementCollection
-    private List<Official> guardsAssigned;
+    private List<String> guardsAssigned;
 }

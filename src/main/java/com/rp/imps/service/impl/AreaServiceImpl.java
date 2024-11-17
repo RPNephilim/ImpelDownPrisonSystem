@@ -15,45 +15,65 @@ import org.springframework.stereotype.Service;
 public class AreaServiceImpl implements AreaService {
 
     @Autowired
-    AreaRepository repository;
+    AreaRepository areaRepository;
 
     @Override
     public AreaResponse addArea(AreaRequest areaRequest) {
         Area area = new Area();
-        AreaResponse areaResponse = new AreaResponse();
         BeanUtils.copyProperties(areaRequest, area);
-        BeanUtils.copyProperties(repository.save(area), areaResponse);
-        return areaResponse;
+        area = areaRepository.save(area);
+        return AreaResponse.builder()
+                .id(area.getId())
+                .name(area.getName())
+                .cells(area.getCells())
+                .rooms(area.getRooms())
+                .guardsAssigned(area.getGuardsAssigned())
+                .build();
     }
 
     @Override
     public AreaResponse getArea(String id) {
-        AreaResponse areaResponse = new AreaResponse();
-        BeanUtils.copyProperties(repository.findById(id), areaResponse);
-        return areaResponse;
+        Area area = areaRepository.findById(id).orElseThrow(
+                () -> {
+                    log.error("Area = {} does not exists", id);
+                    return new RuntimeException("Area not found");
+                }
+        );
+        return AreaResponse.builder()
+                .id(area.getId())
+                .name(area.getName())
+                .cells(area.getCells())
+                .rooms(area.getRooms())
+                .guardsAssigned(area.getGuardsAssigned())
+                .build();
     }
 
     @Override
     public String removeArea(String id) {
-        repository.deleteById(id);
-        if(repository.existsById(id)){
+        areaRepository.deleteById(id);
+        if(areaRepository.existsById(id)){
             log.error("Unable to remove area = {}", id);
             throw new RuntimeException("Unable to remove area = "+id);
         }
-        return "Remove area successfully with id "+id;
+        return "Removed area successfully with id "+id;
     }
 
     @Override
     public AreaResponse updateArea(String id, AreaRequest areaRequest) {
-        if(!repository.existsById(id)){
-            log.error("Area = {} does not exists.", areaRequest);
-            throw new RuntimeException("Provided area does not exists.");
-        }
-        Area area = new Area();
-        AreaResponse areaResponse = new AreaResponse();
+        Area area = areaRepository.findById(id).orElseThrow(
+                () -> {
+                    log.error("Area = {} does not exists", id);
+                    return new RuntimeException("Area not found");
+                }
+        );
         BeanUtils.copyProperties(areaRequest, area);
-        area.setId(id);
-        BeanUtils.copyProperties(repository.save(area), areaResponse);
-        return areaResponse;
+        area = areaRepository.save(area);
+        return AreaResponse.builder()
+                .id(area.getId())
+                .name(area.getName())
+                .cells(area.getCells())
+                .rooms(area.getRooms())
+                .guardsAssigned(area.getGuardsAssigned())
+                .build();
     }
 }

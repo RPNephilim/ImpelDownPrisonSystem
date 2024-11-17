@@ -15,6 +15,7 @@ public class PrisonerResponse extends Person {
     private String crimeDescription;
     private String affiliatedWith;
     private String assignedLevel;
+    private String assignedArea;
     private String executionDate;
     private String executionStatus;
     private String assignedCell;

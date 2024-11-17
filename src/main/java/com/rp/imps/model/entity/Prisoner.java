@@ -22,6 +22,7 @@ public class Prisoner extends Person {
     private String crimeDescription;
     private String affiliatedWith;
     private String assignedLevel;
+    private String assignedArea;
     private LocalDate executionDate;
     private ExecutionStatus executionStatus;
     private String assignedCell;

@@ -14,5 +14,5 @@ import java.util.List;
 public class LevelRequest {
     private String type;
     private String supervisor;
-    private List<Area> areas;
+    private List<String> areas;
 }

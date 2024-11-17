@@ -7,5 +7,5 @@ public interface PrisonerService {
     public PrisonerResponse addPrisoner(PrisonerRequest Prisoner);
     public PrisonerResponse getPrisoner(String id);
     public String removePrisoner(String id);
-    public PrisonerResponse updatePrisoner(PrisonerRequest Prisoner);
+    public PrisonerResponse updatePrisoner(String id, PrisonerRequest Prisoner);
 }

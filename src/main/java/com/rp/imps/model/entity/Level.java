@@ -19,6 +19,5 @@ public class Level {
     private String id;
     private LevelType type;
     private String supervisor;
-    @ElementCollection
-    private List<Area> areas;
+    private List<String> areas;
 }
