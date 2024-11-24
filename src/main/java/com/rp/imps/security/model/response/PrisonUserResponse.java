@@ -14,6 +14,5 @@ import java.util.List;
 public class PrisonUserResponse {
     private String name;
     private String username;
-    private String password;
     private List<String> roles;
 }

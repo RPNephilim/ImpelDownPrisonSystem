@@ -11,6 +11,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -30,7 +35,7 @@ public class ImpsSecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .csrf((csrf) -> csrf.disable())
-                .formLogin(Customizer.withDefaults())
+                .cors(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
     }
@@ -39,4 +44,16 @@ public class ImpsSecurityConfig {
 //    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
 //        return configuration.getAuthenticationManager();
 //    }
+
+    @Bean
+    CorsConfigurationSource configurationSource(){
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowedOrigins(List.of("http://localhost:3000"));
+        corsConfiguration.setAllowCredentials(true);
+        corsConfiguration.addAllowedHeader("*");
+        corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", corsConfiguration);
+        return source;
+    }
 }
